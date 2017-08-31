@@ -3,7 +3,7 @@ var router = express.Router();
 const knexfile = require('../knexfile.js');
 const knex = require('knex')({client: 'pg', database : 'spotographer', connection: 'postgres://localhost/spotographer'});
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const saltRounds = 10; 
 
 router.post('/NewUser', (req, res, next) =>{
   knex.raw('SELECT username FROM users where username = ?', [req.body.username]).then(data =>{
